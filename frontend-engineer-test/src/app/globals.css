@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue'), local('Helvetica');
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.text-54 {
+  font-size: 54px;
+}
+
+.leading-64 {
+  line-height: 64px;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.text-primary {
+  color: #333333;
+}
+
+.text-22 {
+  font-size: 22px;
+}
+
+.leading-32 {
+  line-height: 32px;
+}
+
+.letter-spacing-1 {
+  letter-spacing: 0.917px;
+}
+
+.text-background {
+  color: #666666;
+}
+
+.text-16 {
+  font-size: 16px;
+}
+
+.leading-19 {
+  line-height: 19.09px;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.border-custom-gray {
+  border-color: #666666;
+}
+
+.fill-custom-gray {
+  fill: #666666;
+}
+
+.select-no-outline:focus {
+  outline: none;
+  border-color: #666666; /* opcional, se você quiser uma borda diferente no foco */
+}
+
+.border-custom-light-gray {
+  border-color: #C8C8C8;
+}
+
+.text-custom-light-gray {
+  color: #C8C8C8;
+}
+
+.button-clear-all {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button-clear-all:hover {
+  background-color: #C8C8C8;
+  color: #ffffff;
+}
+
+/* Estilos para o CharacterItem */
+.text-20 {
+  font-size: 20px;
+}
+
+.leading-28 {
+  line-height: 28px;
+}
+
+.letter-spacing-1 {
+  letter-spacing: 1px;
+}
+
+.text-16 {
+  font-size: 16px;
+}
+
+.text-12 {
+  font-size: 12px;
+}
+
+.leading-16 {
+  line-height: 16px;
+}
+
+.letter-spacing-05 {
+  letter-spacing: 0.5px;
+}
+
+.text-background {
+  color: #757575;
+}
+
+/* Estilos do botão "Load More" */
+.load-more-button {
+  width: 486.02px;
+  height: 48px;
+  padding: 1px 200.41px 1px 200.61px;
+  gap: 0px;
+  border: 1px solid #002B53;
+  background-color: transparent;
+  opacity: 1;
+  color: #002B53;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.load-more-button:hover {
+  background-color: #002B53;
+  color: #ffffff;
+}
+
+/* Loader Styles */
+.loader {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
