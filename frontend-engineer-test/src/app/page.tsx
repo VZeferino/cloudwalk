@@ -19,7 +19,7 @@ interface Planet {
   url: string;
 }
 
-export default function Home() {
+const Home: React.FC = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [planets, setPlanets] = useState<Planet[]>([]);
   const [filteredCharacters, setFilteredCharacters] = useState<Character[]>([]);
@@ -27,20 +27,24 @@ export default function Home() {
   const [allLoaded, setAllLoaded] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+  const API_PLANETS = process.env.NEXT_PUBLIC_API_PLANETS;
+  const API_PEOPLE = process.env.NEXT_PUBLIC_API_PEOPLE;
+
   useEffect(() => {
     const fetchPlanets = async () => {
-      const planetResponse = await fetch('/api/planets');
+      const planetResponse = await fetch(`${API_BASE_URL}${API_PLANETS}`);
       const planetData = await planetResponse.json();
       setPlanets(planetData.results);
     };
 
     fetchPlanets();
-  }, []);
+  }, [API_BASE_URL, API_PLANETS]);
 
   useEffect(() => {
     const fetchCharacters = async () => {
       setLoading(true);
-      const characterResponse = await fetch(`/api/people/?page=${page}`);
+      const characterResponse = await fetch(`${API_BASE_URL}${API_PEOPLE}/?page=${page}`);
       const characterData = await characterResponse.json();
 
       if (!characterData.results.length) {
@@ -51,7 +55,7 @@ export default function Home() {
 
       const charactersWithHomeworld = await Promise.all(
         characterData.results.map(async (character: any, index: number) => {
-          const homeworldResponse = await fetch(character.homeworld.replace('http://swapi.dev/api', '/api'));
+          const homeworldResponse = await fetch(character.homeworld.replace('http://swapi.dev/api', `${API_BASE_URL}`));
           const homeworldData = await homeworldResponse.json();
           return {
             id: page * 10 + index, // Unique ID based on page and index
@@ -72,7 +76,7 @@ export default function Home() {
     if (!allLoaded) {
       fetchCharacters();
     }
-  }, [page, allLoaded]);
+  }, [page, allLoaded, API_BASE_URL, API_PEOPLE]);
 
   const handleFilterChange = (planetUrl: string) => {
     if (planetUrl === '') {
@@ -100,7 +104,7 @@ export default function Home() {
       </div>
       {loading ? (
         <div className="flex justify-center my-4">
-          <div className="loader"></div> {/* Placeholder for a loading spinner */}
+          <div className="loader"></div>
           <p>Loading...</p>
         </div>
       ) : (
@@ -123,4 +127,6 @@ export default function Home() {
       )}
     </div>
   );
-}
+};
+
+export default Home;

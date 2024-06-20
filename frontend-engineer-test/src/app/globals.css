@@ -11,52 +11,78 @@ body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* Estilos de Tipografia */
 .text-54 {
   font-size: 54px;
-}
-
-.leading-64 {
-  line-height: 64px;
-}
-
-.font-light {
-  font-weight: 300;
-}
-
-.text-primary {
-  color: #333333;
 }
 
 .text-22 {
   font-size: 22px;
 }
 
-.leading-32 {
-  line-height: 32px;
-}
-
-.letter-spacing-1 {
-  letter-spacing: 0.917px;
-}
-
-.text-background {
-  color: #666666;
+.text-20 {
+  font-size: 20px;
 }
 
 .text-16 {
   font-size: 16px;
 }
 
+.text-12 {
+  font-size: 12px;
+}
+
+.leading-64 {
+  line-height: 64px;
+}
+
+.leading-32 {
+  line-height: 32px;
+}
+
+.leading-28 {
+  line-height: 28px;
+}
+
 .leading-19 {
   line-height: 19.09px;
+}
+
+.leading-16 {
+  line-height: 16px;
+}
+
+.font-light {
+  font-weight: 300;
 }
 
 .font-normal {
   font-weight: 400;
 }
 
+.letter-spacing-1 {
+  letter-spacing: 0.917px;
+}
+
+.letter-spacing-05 {
+  letter-spacing: 0.5px;
+}
+
+.text-primary {
+  color: #333333;
+}
+
+.text-background {
+  color: #666666;
+}
+
+/* Bordas e Preenchimento */
 .border-custom-gray {
   border-color: #666666;
+}
+
+.border-custom-light-gray {
+  border-color: #C8C8C8;
 }
 
 .fill-custom-gray {
@@ -65,17 +91,14 @@ body {
 
 .select-no-outline:focus {
   outline: none;
-  border-color: #666666; /* opcional, se você quiser uma borda diferente no foco */
-}
-
-.border-custom-light-gray {
-  border-color: #C8C8C8;
+  border-color: #666666;
 }
 
 .text-custom-light-gray {
   color: #C8C8C8;
 }
 
+/* Botões */
 .button-clear-all {
   transition: background-color 0.3s, color 0.3s;
 }
@@ -85,7 +108,55 @@ body {
   color: #ffffff;
 }
 
+.load-more-button {
+  width: 486.02px;
+  height: 48px;
+  padding: 1px 200.41px 1px 200.61px;
+  gap: 0px;
+  border: 1px solid #002B53;
+  background-color: transparent;
+  opacity: 1;
+  color: #002B53;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.load-more-button:hover {
+  background-color: #002B53;
+  color: #ffffff;
+}
+
+/* Loader */
+.loader {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 /* Estilos para o CharacterItem */
+.character-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.character-image {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+
+.character-text {
+  width: 100%;
+}
+
 .text-20 {
   font-size: 20px;
 }
@@ -118,35 +189,83 @@ body {
   color: #757575;
 }
 
-/* Estilos do botão "Load More" */
-.load-more-button {
-  width: 486.02px;
-  height: 48px;
-  padding: 1px 200.41px 1px 200.61px;
-  gap: 0px;
-  border: 1px solid #002B53;
-  background-color: transparent;
-  opacity: 1;
-  color: #002B53;
-  transition: background-color 0.3s, color 0.3s;
-}
+/* Estilos responsivos */
+@media (max-width: 640px) {
+  .character-item {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 
-.load-more-button:hover {
-  background-color: #002B53;
-  color: #ffffff;
-}
+  .character-image {
+    width: 40%;
+    margin-right: 16px;
+  }
 
-/* Loader Styles */
-.loader {
-  border: 4px solid #f3f3f3; /* Light grey */
-  border-top: 4px solid #3498db; /* Blue */
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  animation: spin 2s linear infinite;
-}
+  .character-text {
+    width: 60%;
+  }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  .text-54 {
+    font-size: 32px;
+  }
+
+  .text-22 {
+    font-size: 16px;
+  }
+
+  .text-20 {
+    font-size: 16px;
+  }
+
+  .text-16 {
+    font-size: 14px;
+  }
+
+  .text-12 {
+    font-size: 10px;
+  }
+
+  .leading-28 {
+    line-height: 20px;
+  }
+
+  .letter-spacing-1 {
+    letter-spacing: 0.5px;
+  }
+
+  .button-clear-all {
+    display: none;
+  }
+
+  .load-more-button {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .description {
+    width: 100%;
+  }
+
+  .character-info {
+    display: none;
+  }
+
+  .px-8 {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  .pt-16 {
+    padding-top: 1.5rem;
+  }
+
+  .pb-16 {
+    padding-bottom: 1.5rem;
+  }
+
+  .mt-4 {
+    margin-top: 0px;
+  }
 }
