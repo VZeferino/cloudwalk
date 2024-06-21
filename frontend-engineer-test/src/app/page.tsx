@@ -19,13 +19,14 @@ interface Planet {
   url: string;
 }
 
-const Home: React.FC = () => {
+export default function Home() {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [planets, setPlanets] = useState<Planet[]>([]);
   const [filteredCharacters, setFilteredCharacters] = useState<Character[]>([]);
   const [page, setPage] = useState(1);
   const [allLoaded, setAllLoaded] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [selectedPlanetName, setSelectedPlanetName] = useState('All Characters');
 
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
   const API_PLANETS = process.env.NEXT_PUBLIC_API_PLANETS;
@@ -81,15 +82,19 @@ const Home: React.FC = () => {
   const handleFilterChange = (planetUrl: string) => {
     if (planetUrl === '') {
       setFilteredCharacters(characters.slice(0, page * 8));
+      setSelectedPlanetName('All Characters');
     } else {
       setFilteredCharacters(
         characters.filter((character) => character.homeworld.url === planetUrl).slice(0, page * 8)
       );
+      const planet = planets.find((planet) => planet.url === planetUrl);
+      setSelectedPlanetName(planet ? planet.name : 'Filtered Characters');
     }
   };
 
   const handleClearAll = () => {
     setFilteredCharacters(characters.slice(0, page * 8));
+    setSelectedPlanetName('All Characters');
   };
 
   const handleLoadMore = () => {
@@ -102,6 +107,9 @@ const Home: React.FC = () => {
       <div className="pt-8">
         <Filter planets={planets} onFilterChange={handleFilterChange} onClearAll={handleClearAll} />
       </div>
+      <h2 className="font-helvetica text-34 font-light leading-32 text-primary text-left mt-8 pl-4">
+        {selectedPlanetName}
+      </h2>
       {loading ? (
         <div className="flex justify-center my-4">
           <div className="loader"></div>
@@ -127,6 +135,4 @@ const Home: React.FC = () => {
       )}
     </div>
   );
-};
-
-export default Home;
+}

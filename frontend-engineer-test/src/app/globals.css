@@ -16,6 +16,10 @@ body {
   font-size: 54px;
 }
 
+.text-34 {
+  font-size: 34px;
+}
+
 .text-22 {
   font-size: 22px;
 }
@@ -207,6 +211,10 @@ body {
 
   .text-54 {
     font-size: 32px;
+  }
+
+  .text-34 {
+    font-size: 24px;
   }
 
   .text-22 {
