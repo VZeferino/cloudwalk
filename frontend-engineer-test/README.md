@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Star Wars Characters
+
+## Overview
+
+This project is a frontend application built using React, designed to display characters from the Star Wars universe. The application fetches data from the Star Wars API (SWAPI) and provides features such as real-time filtering of characters based on their homeworld, responsive design for various screen sizes, and the use of environment variables for API configuration.
+
+## Features
+
+- **Real-time Filtering**: Filter characters by their homeworld in real-time.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Data from SWAPI**: Fetches accurate and up-to-date information from the Star Wars API.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Make sure you have the following installed:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js (v14 or higher)
+- npm (v6 or higher) or yarn (v1.22 or higher)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **Clone the repository**:
 
-## Learn More
+    ```bash
+    git clone https://github.com/VZeferino/cloudwalk.git
+    cd cloudwalk/frontend-engineer-test
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Install dependencies**:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```bash
+    npm install
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. **Create a `.env` file in the root directory** and add the following environment variables:
 
-## Deploy on Vercel
+    ```env
+    NEXT_PUBLIC_API_BASE_URL=https://swapi.dev/api
+    NEXT_PUBLIC_API_PLANETS=/planets
+    NEXT_PUBLIC_API_PEOPLE=/people
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Running the Application
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. **Start the development server**:
+
+    ```bash
+    npm run dev
+    ```
+
+2. **Open your browser and navigate to**:
+
+    ```
+    http://localhost:3000
+    ```
+
+## Components
+
+- **Header**: Displays the main title and description of the application.
+- **Filter**: Provides a dropdown to filter characters by their homeworld.
+- **CharacterItem**: Displays individual character information, including name, homeworld, height, mass, and gender.
+
+## API Integration
+
+The application fetches data from the Star Wars API (SWAPI). The base URL and endpoints for fetching planets and people are defined in the `.env` file.
+
+## Improvements
+
+- **Pagination**: Implement infinite scroll or pagination for better user experience when browsing many characters.
+- **Caching**: Implement caching strategies to reduce the number of API calls and improve performance.
+- **Error Handling**: Improve error handling to provide better user feedback in case of API failures.
+- **Testing**: Add unit and integration tests to ensure the application works as expected.
+- **Loading State**: Enhance the loading state with animations or skeleton screens to improve user experience during data fetching.
+
+
+## License
+
+This project is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a>
