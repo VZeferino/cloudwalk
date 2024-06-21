@@ -17,7 +17,7 @@ This project is a frontend application built using React, designed to display ch
 Make sure you have the following installed:
 
 - Node.js (v14 or higher)
-- npm (v6 or higher) or yarn (v1.22 or higher)
+- npm (v6 or higher)
 
 ### Installation
 
@@ -73,6 +73,7 @@ The application fetches data from the Star Wars API (SWAPI). The base URL and en
 - **Error Handling**: Improve error handling to provide better user feedback in case of API failures.
 - **Testing**: Add unit and integration tests to ensure the application works as expected.
 - **Loading State**: Enhance the loading state with animations or skeleton screens to improve user experience during data fetching.
+- **Dark Mode**: Implement a dark mode for better user experience, especially in low-light environments.
 
 
 ## License
