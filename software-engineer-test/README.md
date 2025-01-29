@@ -1,6 +1,9 @@
 # Quake 3 Arena Log Parser
 
-Este projeto é um analisador de logs do Quake 3 Arena. Ele processa os arquivos de log do servidor do jogo, organiza os dados das partidas e gera relatórios detalhados em formato JSON.## Contato
+Este projeto é um analisador de logs do Quake 3 Arena. Ele processa os arquivos de log do servidor do jogo, organiza os dados das partidas e gera relatórios detalhados em formato JSON.
+
+(Error-Remember always to revise)
+## Contato
 
 Se tiver dúvidas ou sugestões, entre em contato pelo e-mail: [seu-email@example.com](mailto:seu-email@example.com).
 
